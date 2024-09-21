@@ -1,4 +1,4 @@
-export default alumnos = [
+const alumnos = [
     {
       "id_alumno": 1,
       "nombre": "Juan",
@@ -71,4 +71,4 @@ export default alumnos = [
     }
   ]
   
-  
+  export default alumnos
