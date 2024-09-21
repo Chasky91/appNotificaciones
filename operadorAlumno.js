@@ -29,15 +29,36 @@ function modificar() {
     for(let i = 0; i < alumnos.length; i++ ) {
 
         if(idAlumnoInterface===alumnos[i].id_alumno){
-            
-            alumnos[i].nombre = "Marcos"
-            console.log(alumnos[i], "Actualizacion completa")
-        } else {
-        }
+
+            alumnos[i].nombre = "Marcos"//solo cambia el nombre del alumno
+
+            let alumnoModificado = {
+                "id_alumno": alumnos[i].id_alumno,
+                "nombre": "Marcos",
+                "apellido": "Lopez" ,
+                "gmail": "Marcoslopez@gmail.com",
+                "id_curso": 0
+              }
+            alumnos.splice(i,1,alumnoModificado)
+            console.log(alumnos, "Actualizacion completa")
+        } 
     }
 }
 
-modificar()
+function eliminarUno() {
+
+    for(let i = 0; i < alumnos.length; i++ ) {
+
+        if(idAlumnoInterface===alumnos[i].id_alumno){
+
+            alumnos.splice(i,1)
+            console.log(alumnos, "Actualizacion completa")
+        } 
+    }
+}
+
+
+eliminarUno()
 
 //obtenerUno()
 
