@@ -58,9 +58,9 @@ function eliminarUno() {
 }
 
 
-eliminarUno()
+//eliminarUno()
 
-//obtenerUno()
+obtenerUno()
 
 //obtenerTodos()
 
