@@ -1,5 +1,6 @@
+##herramienta de desarrollo
 ##Crear un cliente especifico
 GET http://localhost:5000/alumnos
 
 ###
-GET http://localhost:5000/alumnos
+GET http://localhost:5000/alumnos/455
