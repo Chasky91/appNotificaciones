@@ -4,6 +4,7 @@ import { routerAlumno } from './router/alumnoRouter.js'
 
 //creo el servidor
 const app = express()
+app.use(express.json())
 
 //GET localhost:5000/alumnos"/"
 app.use("/alumnos", routerAlumno)

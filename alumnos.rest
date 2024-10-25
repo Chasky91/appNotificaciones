@@ -2,14 +2,14 @@
 ##Crear un cliente especifico
 GET http://localhost:5000/alumnos
 
-###
-GET http://localhost:5000/alumnos/445
+####
+GET http://localhost:5000/alumnos/3
 
 ###
-POST http://localhost:5000/alumno
+POST http://localhost:5000/alumnos
 content-type: application/json
- 
- {
+
+  {
     
       "nombre": "Ana",
       "apellido": "Martínez",

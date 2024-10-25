@@ -13,14 +13,7 @@ const idAlumnoInterface = 5
 
 function obtenerUno(idAlumno) {
 
-    for(let i = 0; i < alumnos.length; i++ ) {
-
-        if(idAlumno===alumnos[i].id_alumno){
-            return console.log(alumnos[i])
-        } else {
-            console.log("accede a la posicion pero no encuentra nada en el indice Nº", i)
-        }
-    }
+    
 }
 
 
