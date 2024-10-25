@@ -1,7 +1,5 @@
 GET http://localhost:5000/administrativo/4
 
-###
-POST http://localhost:5000/administrativo
 
 
 

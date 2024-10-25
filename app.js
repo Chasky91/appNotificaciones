@@ -1,8 +1,12 @@
 import express from 'express'
 import alumnos from './alumnos.js'
+import { routerAlumno } from './router/alumnoRouter.js'
 
 //creo el servidor
 const app = express()
+
+//GET localhost:5000/alumnos"/"
+app.use("/alumnos", routerAlumno)
 
 //endpoints
 

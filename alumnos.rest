@@ -4,3 +4,16 @@ GET http://localhost:5000/alumnos
 
 ###
 GET http://localhost:5000/alumnos/445
+
+###
+POST http://localhost:5000/alumno
+content-type: application/json
+ 
+ {
+    
+      "nombre": "Ana",
+      "apellido": "Martínez",
+      "gmail": "ana.martinez@gmail.com",
+      "id_curso": 0
+    
+ }
