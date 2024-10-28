@@ -26,38 +26,23 @@ export const crearAlumno = (req, res) => {
 }
 
 
-const  actualizarAlumno = (req, res) =>{
-
-    let id = req.params.id
+export const  actualizarAlumno = (req, res) =>{
+    console.log("Se accedio a actiualizar alumno")
+    let id = parseInt(req.params.id)
     let  body = req.body
-    /**
-     * {
-    
-      "nombre": "Ana",
-      "apellido": "Martínez",
-      "gmail": "ana.martinez@gmail.com",
-      "id_curso": 0
-    
- }
-     */
 
     for(let i = 0; i < alumnos.length; i++ ) {
-
         if(id===alumnos[i].id_alumno){
+            console.log(i, "indice donde esta el alumno");
+            //Mantener el id         
+            alumnos.splice(i,1, body )
+            //reemplazar con el modelo  de alumnos
 
-            alumnos[i].nombre = "Marcos"//solo cambia el nombre del alumno
-
-            let alumnoModificado = {
-                "id_alumno": alumnos[i].id_alumno,
-                "nombre": "Marcos",
-                "apellido": "Lopez" ,
-                "gmail": "Marcoslopez@gmail.com",
-                "id_curso": 0
-              }
-            alumnos.splice(i,1,alumnoModificado)
-            console.log(alumnos, "Actualizacion completa")
+            return res.json({"mensaje":alumnos[i]})            //alumnos.splice(i,1,alumnoModificado)
+           
         } 
     }
+    res.status(404).json({"mensaje":"el alumno no existe"})
 }
 
 const  eliminarAlumnos = (req, res) =>{

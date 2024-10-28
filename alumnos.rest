@@ -17,3 +17,17 @@ content-type: application/json
       "id_curso": 0
     
  }
+
+###
+PUT http://localhost:5000/alumnos/2
+content-type: application/json
+
+{
+    "id_alumno":2,
+    "nombre": "Jose",
+    "apellido": "Lopez",
+    "gmail": "Jose.lopez@gmail.com",
+    "id_curso": 0
+  
+}
+
