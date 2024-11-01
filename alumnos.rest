@@ -14,7 +14,9 @@ content-type: application/json
       "nombre": "Ana",
       "apellido": "Martínez",
       "gmail": "ana.martinez@gmail.com",
-      "id_curso": 0
+      "gmail": "Jose.lopez@gmail.com",
+    "id_curso": 0,
+    "id_alumno":"dvfvfvfvfv"
     
  }
 
@@ -27,7 +29,11 @@ content-type: application/json
     "nombre": "Jose",
     "apellido": "Lopez",
     "gmail": "Jose.lopez@gmail.com",
-    "id_curso": 0
+    "id_curso": 0,
+    "id_alumno":"dvfvfvfvfv"
   
 }
+
+###
+DELETE http://localhost:5000/alumnos/2
 

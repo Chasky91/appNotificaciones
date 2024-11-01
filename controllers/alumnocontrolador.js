@@ -45,8 +45,21 @@ export const  actualizarAlumno = (req, res) =>{
     res.status(404).json({"mensaje":"el alumno no existe"})
 }
 
-const  eliminarAlumnos = (req, res) =>{
+export const  eliminarAlumno = (req, res) =>{
+    let id = parseInt(req.params.id)
 
+    for(let i = 0; i < alumnos.length; i++ ) {
+        if(id===alumnos[i].id_alumno){
+            console.log(i, "indice donde esta el alumno");
+            //Mantener el id         
+            alumnos.splice(i,1 )
+            //reemplazar con el modelo  de alumnos
+
+            return res.json({"mensaje":"alumno borrado"})            //alumnos.splice(i,1,alumnoModificado)
+           
+        } 
+    }
+    res.status(404).json({"mensaje":"el alumno no existe"})
 }
 
 

@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { actualizarAlumno, crearAlumno, obtenerAlumnos, obtenerUnAlumno } from "../controllers/alumnocontrolador.js"
+import { actualizarAlumno, crearAlumno, eliminarAlumno, obtenerAlumnos, obtenerUnAlumno } from "../controllers/alumnocontrolador.js"
 
 //endpoitns para el alumno
 export const routerAlumno = Router()
@@ -9,3 +9,4 @@ routerAlumno.get("/", obtenerAlumnos )
 routerAlumno.get("/:id_alumno", obtenerUnAlumno )
 routerAlumno.post("/", crearAlumno)
 routerAlumno.put("/:id", actualizarAlumno)
+routerAlumno.delete("/:id", eliminarAlumno)
