@@ -54,9 +54,8 @@ export const  eliminarAlumno = (req, res) =>{
             //Mantener el id         
             alumnos.splice(i,1 )
             //reemplazar con el modelo  de alumnos
-
             return res.json({"mensaje":"alumno borrado"})            //alumnos.splice(i,1,alumnoModificado)
-           
+
         } 
     }
     res.status(404).json({"mensaje":"el alumno no existe"})

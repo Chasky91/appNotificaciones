@@ -3,7 +3,7 @@
 GET http://localhost:5000/alumnos
 
 ####
-GET http://localhost:5000/alumnos/3
+GET http://localhost:5000/alumnos/5
 
 ###
 POST http://localhost:5000/alumnos
@@ -25,12 +25,10 @@ PUT http://localhost:5000/alumnos/2
 content-type: application/json
 
 {
-    "id_alumno":2,
     "nombre": "Jose",
     "apellido": "Lopez",
     "gmail": "Jose.lopez@gmail.com",
-    "id_curso": 0,
-    "id_alumno":"dvfvfvfvfv"
+    "id_curso": 0
   
 }
 
