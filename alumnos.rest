@@ -11,12 +11,10 @@ content-type: application/json
 
   {
     
-      "nombre": "Ana",
-      "apellido": "Martínez",
-      "gmail": "ana.martinez@gmail.com",
-      "gmail": "Jose.lopez@gmail.com",
-    "id_curso": 0,
-    "id_alumno":"dvfvfvfvfv"
+      "nombre": "Josefa",
+      "apellido": "Lopez",
+      "email": "@gmail.com",
+      "id_curso": 2
     
  }
 
@@ -28,7 +26,7 @@ content-type: application/json
     "nombre": "Jose",
     "apellido": "Lopez",
     "gmail": "Jose.lopez@gmail.com",
-    "id_curso": 0
+    "id_curso": 0,
   
 }
 

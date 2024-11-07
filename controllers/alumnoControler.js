@@ -1,5 +1,6 @@
 //controlador
 import alumnos from "../alumnos.js"
+import { validarAlunno } from "../schemaAlumnos.js"
 
 
 export const  obtenerAlumnos = (req, res) =>{
@@ -17,6 +18,14 @@ export const obtenerUnAlumno = (req, res) => {
 
 export const crearAlumno = (req, res) => {
     let body = req.body
+    const  resultadoValidacion = validarAlunno(body)
+
+    if(resultadoValidacion.error) {
+        console.log(typeof result, "que dato es")
+    
+        return res.status(400).json({mensaje:JSON.parse(resultadoValidacion.error.message)})
+    } 
+    
     //valiudar los datos que posee el body
     alumnos.push(body)
     res.status(201).json({"message":"alumno agregado "})
