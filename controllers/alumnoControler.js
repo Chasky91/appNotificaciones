@@ -1,18 +1,24 @@
 //controlador
 import alumnos from "../alumnos.js"
 import { validarAlunno } from "../schemaAlumnos.js"
+import alumnoModel from "../models/alumnoModel.js"
 
 
-export const  obtenerAlumnos = (req, res) =>{
+export const  obtenerAlumnos = async (req, res) =>{
     console.log("desde el controlador")
-    res.json({"mensaje":alumnos})
+    let resul = await alumnoModel.buscarTodos()
+    console.log(resul)
+    res.json({"mensaje":resul})
 }
 
 export const obtenerUnAlumno = (req, res) => {
     // id rfescatado desde la solicitud del cliente
     let id = parseInt(req.params.id_alumno)
-    const resultado = alumnos.find( alumno => alumno.id_alumno === id )
-    if(resultado)  return res.json({"menssage" : resultado})
+    //const resultado = alumnos.find( alumno => alumno.id_alumno === id )
+    //if(resultado)  return res.json({"menssage" : resultado})
+
+    const resultado = alumnoModel.buscarUno(id)
+    console.log(resultado)
     res.status(404).json({"message": "El alumno que solicitas no existe"})
 }
 
