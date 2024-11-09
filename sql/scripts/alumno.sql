@@ -1,7 +1,7 @@
 
 CREATE DATABASE cent_44;
 USE cent_44;
-CREATE TABLE usuario(
+CREATE TABLE alumno(
     dni INT PRIMARY key,
     nombre VARCHAR(70) NOT NULL,
     apellido VARCHAR(70) NOT NULL,

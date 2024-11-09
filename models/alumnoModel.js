@@ -8,37 +8,41 @@ const config = {
   database: 'cent_44',
 }
 
+// Create the connection to database
 const conexion = await mysql.createConnection(config)
 
- async function buscarTodos() {
+async function buscarTodos() {
     const resultado = await conexion.query(
         "SELECT  * FROM usuario;",
       )
-      console.log(resultado)
       return resultado[0]
 }
 
-const buscarUno  =  (id) => {
 
-  let usuario
-  conexion.execute(
-    'SELECT * FROM usuario ;',
-    function (err, results, fields) {
-      console.log(results); // results contains rows returned by server
-      console.log(fields); // fields contains extra meta data about results, if available
-      console.log(err);
-      usuario[resultado] = results
-      usuario[err] = err
-    }
+  const buscarUno = async(id) =>{
+    const resultados = await conexion.query(
+      'SELECT * FROM usuario WHERE dni = ?',[id]
+    ) 
+    
+  return  resultados[0]
+}
+
+const  crear = async (alumno) => {
+  const resultado = await conexion.query(
+    'INSERT INTO usuario (dni, nombre, apellido, email) VALUES (?, ?, ?, ?)',
+    [alumno.dni, alumno.nombre, alumno.apellido,alumno.email ]
   )
-  return usuario
+  console.log(resultado)
+   
+  return  resultado[0]
 }
+console.log(crear({
+  "dni":41112212,
+  "nombre": "Josefa",
+  "apellido": "Lopez",
+  "email": "Josefa.lopez@gmail.com"
 
-console.log(buscarUno(12345678))
-
-const  crear = () => {
-
-}
+}))
 
 const actualizar  = () => {
 

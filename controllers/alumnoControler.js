@@ -11,13 +11,13 @@ export const  obtenerAlumnos = async (req, res) =>{
     res.json({"mensaje":resul})
 }
 
-export const obtenerUnAlumno = (req, res) => {
+export const obtenerUnAlumno = async (req, res) => {
     // id rfescatado desde la solicitud del cliente
     let id = parseInt(req.params.id_alumno)
     //const resultado = alumnos.find( alumno => alumno.id_alumno === id )
-    //if(resultado)  return res.json({"menssage" : resultado})
+    const resultado = await alumnoModel.buscarUno(id)
+    if(resultado.length >=1)  return res.json({"menssage" : resultado})
 
-    const resultado = alumnoModel.buscarUno(id)
     console.log(resultado)
     res.status(404).json({"message": "El alumno que solicitas no existe"})
 }
@@ -25,14 +25,13 @@ export const obtenerUnAlumno = (req, res) => {
 export const crearAlumno = (req, res) => {
     let body = req.body
     const  resultadoValidacion = validarAlunno(body)
-
     if(resultadoValidacion.error) {
-        console.log(typeof result, "que dato es")
-    
+        console.log(typeof result, "que dato es")    
         return res.status(400).json({mensaje:JSON.parse(resultadoValidacion.error.message)})
-    } 
-    
+    }     
     //valiudar los datos que posee el body
+    console.log(body);
+    
     alumnos.push(body)
     res.status(201).json({"message":"alumno agregado "})
 }
