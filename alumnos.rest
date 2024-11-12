@@ -1,32 +1,30 @@
 ##herramienta de desarrollo
 ##Crear un cliente especifico
-GET http://biblioteca.com/alumnos/{id}
+GET http://localhost:5000/alumnos/
 
 ####
-GET http://localhost:5000/alumnos/12345678
+GET http://localhost:5000/alumnos/50963852
 
 ###
 POST http://localhost:5000/alumnos
 content-type: application/json
 
 {
-    "dni":48112212,
-    "nombre": "Josefa",
+    "dni":50963852,
+    "nombre": "Raul",
     "apellido": "Lopez",
-    "email": "Jorge@gmail.com",
-    "id_curso": 2
-
+    "email": "Raul.lopez@gmail.com"
 }
 
 ###
-PUT http://localhost:5000/alumnos/2
+PUT http://localhost:5000/alumnos/49963852
 content-type: application/json
 
 {
-    "nombre": "Jose",
+    "nombre": "Ramon",
     "apellido": "Lopez",
-    "gmail": "Jose.lopez@gmail.com",
-    "id_curso": 0,
+    "gmail": "Ramon.lopez@gmail.com"
+    //"id_curso": 0,
   
 }
 

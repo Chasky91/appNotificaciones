@@ -4,7 +4,7 @@ import { routerAlumno } from './router/alumnoRouter.js'
 
 //creo el servidor
 const app = express()
-app.use(express.json())
+//app.use(express.json())
 
 //GET localhost:5000/alumnos"/"
 app.use("/alumnos", routerAlumno)
@@ -16,7 +16,7 @@ app.use("/alumnos", routerAlumno)
 app.get('/alumnos', (req, res) => {
     
     //res.send() devuelve una respuesta al usuario con los datos solicitados
-    res.json({"mensanje": alumnos})
+    re.json({"mensanje": alumnos})
 })
 
 //localhost:5000"/alumnos/id_alumno"

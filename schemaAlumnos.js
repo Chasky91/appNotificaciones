@@ -19,12 +19,14 @@ let datosAlumno = {
 }
  */
 //creacion de la estructura para validara
+// se agrego la validacion para el dni
 const schemaAlumnos = z.object( 
     {
+        dni:z.number().positive(),
         nombre: z.string(),
         apellido: z.string(),
-        email: z.string().email(),
-        id_curso :z.number().positive().min(1)
+        email: z.string().email()/*,
+        id_curso :z.number().positive().min(1)*/
         
     } 
 )
