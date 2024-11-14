@@ -1,22 +1,26 @@
 
-CREATE DATABASE cent_44;
+-- CREATE DATABASE cent_44;
 USE cent_44;
+DROP table if exists alumno;
+
 CREATE TABLE alumno(
     dni INT PRIMARY key,
     nombre VARCHAR(70) NOT NULL,
     apellido VARCHAR(70) NOT NULL,
-    email VARCHAR(70) NOT NULL UNIQUE
+    -- “+” + 54 + 9 + código de área sin 0 + número de móvil sin 15.
+    -- Antes acá estaba el campo email
+    celular VARCHAR(15) NOT NULL UNIQUE
 );
 
 
-INSERT INTO usuario (dni, nombre, apellido, email) VALUES 
-(45678912, 'Ana', 'García', 'ana.garcia@email.com'),
-(34567891, 'Carlos', 'Rodríguez', 'carlos.rodriguez@email.com'),
-(23456789, 'María', 'López', 'maria.lopez@email.com'),
-(12345678, 'Juan', 'Martínez', 'juan.martinez@email.com'),
-(56789123, 'Laura', 'Sánchez', 'laura.sanchez@email.com'),
-(67891234, 'Pedro', 'González', 'pedro.gonzalez@email.com'),
-(78912345, 'Sofia', 'Fernández', 'sofia.fernandez@email.com'),
-(89123456, 'Miguel', 'Torres', 'miguel.torres@email.com'),
-(91234567, 'Carmen', 'Ruiz', 'carmen.ruiz@email.com'),
-(98765432, 'Diego', 'Pérez', 'diego.perez@email.com');
+INSERT INTO alumno (dni, nombre, apellido, celular) VALUES 
+(45678912, 'Ana', 'García', '2994555644'),
+(34567891, 'Carlos', 'Rodríguez', '2994555643'),
+(23456789, 'María', 'López', '2994555642'),
+(12345678, 'Juan', 'Martínez', '2994555645'),
+(56789123, 'Laura', 'Sánchez', '2994555646'),
+(67891234, 'Pedro', 'González', '2994555647'),
+(78912345, 'Sofia', 'Fernández', '2994555649'),
+(89123456, 'Miguel', 'Torres', '2994555610'),
+(91234567, 'Carmen', 'Ruiz', '2994555611'),
+(98765432, 'Diego', 'Pérez', '2994555612');
