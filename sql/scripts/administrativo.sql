@@ -1,4 +1,5 @@
 USE cent_44;
+drop table if	exists administrativo;
 
 CREATE TABLE administrativo (
 	id INT AUTO_INCREMENT PRIMARY KEY,
@@ -8,7 +9,7 @@ CREATE TABLE administrativo (
     password_hash VARCHAR(60) NOT NULL
 );
 
-INSERT INTO adaministrativo (nombre, apellido, email, password_hash) VALUES 
+INSERT INTO administrativo (nombre, apellido, email, password_hash) VALUES 
 ('María', 'González', 'aria.gonzalez@example.com', 'MaríaG'),
 ('Juan', 'Pérez', 'juan.perez@example.com', 'JuanP'),
 ('Luis', 'Rodríguez', 'luis.rodriguez@example.com', 'LuisR');
