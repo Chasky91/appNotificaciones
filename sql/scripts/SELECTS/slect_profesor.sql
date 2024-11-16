@@ -42,6 +42,12 @@ select nombre, apellido
 from profesor
 where apellido like '%ez%';
 
+use cent_44;
+select p.id as id_profesor, p.nombre, p.apellido, 
+		mat.id as ide_de_materia, mat.nombre as nombre_materia, mat.id_carre, mat.id_profe
+from profesor as p
+inner join materia as mat on p.id = mat.id_profe;
+
 
 
 
