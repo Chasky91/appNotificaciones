@@ -1,12 +1,6 @@
 import mysql from "mysql2/promise"
+import { config } from "../config.db.js"
 
-const config = {
-  host: 'localhost',
-  port: 3307,
-  user: 'root',
-  password: 'root',
-  database: 'cent_44',
-}
 
 // Create the connection to database
 const conexion = await mysql.createConnection(config)
@@ -18,6 +12,7 @@ async function buscarTodos() {
       return resultado[0]
 }
 
+//console.log(await buscarTodos())
 
   const buscarUno = async(id) =>{
     const resultados = await conexion.query(
@@ -25,6 +20,7 @@ async function buscarTodos() {
     ) 
   return  resultados[0]
 }
+//console.log(await buscarUno(1))
 
 // funcion crear
 const  crear = async (administrativo) => {
@@ -38,61 +34,63 @@ const  crear = async (administrativo) => {
 
   const [resul] = await conexion.execute(sql,values)
   // aca selecciono
-  console.log(resul)
+  console.log(resul.insertId, "EL resultado")
   const nuevoAdmin = await buscarUno(resul.insertId)   
   return  nuevoAdmin[0]
 }
-/*console.log(await crear({
-  "nombre": "Hugo", 
-  "apellido":"Konaszchuk", 
-  "email":'Hugo@gmail.com',
-  "password_hash":'Konaszchuk@gmail.com'
-}),"Crear uno")*/
+// console.log(await crear({
+//   "nombre": "Miguel", 
+//   "apellido":"Dimechelis", 
+//   "email":'Miguel@gmail.com',
+//   "password_hash":'Konaszchuk@gmail.com'
+// }),"Crear uno")
 
 //console.log( await buscarTodos())
 
+const actualizar  = async (administratitvo, id) => {
 
-
-
-const actualizar  = async (alumno, dni) => {
-
-  // recupro las poriedades del objeto json --> alumno
-  const nombre = alumno.nombre
-  const apellido = alumno.apellido
-  const email = alumno.gmail  
+  // recupro las poriedades del objeto json --> administratitvo
+  const nombre = administratitvo.nombre
+  const apellido = administratitvo.apellido
+  const email = administratitvo.email  
   // sentencia sql
-  const sql = 'UPDATE usuario SET nombre = ?, apellido = ?, email = ? WHERE dni = ?';
+  const sql = 'UPDATE administrativo SET nombre = ?, apellido = ?, email = ? WHERE id = ?';
   // Aca  estan las varibles a utilizar en la actualizacion
-  const values = [nombre, apellido, email, dni]
+  const values = [nombre, apellido, email, id]
   //ejecuto la sentencia
   await conexion.execute(sql, values)
-  const select = 'SELECT * FROM usuario WHERE DNI = ?' // sentencia sql pararecuperar registro actualizado
-  const result = await conexion.execute(select, [dni]) // ejecuto la sentencia
+  const select = 'SELECT * FROM administrativo WHERE id = ?' // sentencia sql pararecuperar registro actualizado
+  const result = await conexion.execute(select, [id]) // ejecuto la sentencia
   return result[0]
 }
-/*let usuarioEJ = { 
-  "nombre": "Josesito", 
-  "apellido":"Konaszchuk", 
-  "gmail":'Konaszchuk@gmail.com'
+/*let adminEj = { 
+  "nombre": "Miguel", 
+  "apellido":"Demichelis", 
+  "email":'Miguel@gmail.com'
 }
-console.log(await actualizar(usuarioEJ , 49963852 ))*/
+console.log(await actualizar(adminEj , 5 ))*/
 
 const eliminarUno  = async(id) => {
 
   const sql = 'DELETE FROM administrativo WHERE id= ?;'
   const values = [id]
 
-  const resul = await conexion.execute(sql, values)
-  console.log(resul)
+  const [result] = await conexion.execute(sql, values)
+  console.log(result)
+  if (result.affectedRows > 0) {
+    return id
+} else {
+    return -1
 }
-console.log(await eliminarUno(4));
+}
+//console.log(await eliminarUno(8));
 
 
-const  alumnoModel = {
+const  administratitvoModel = {
     buscarTodos,
     buscarUno,
     crear,
     actualizar,
     eliminarUno
 }
-export default alumnoModel
+export default administratitvoModel

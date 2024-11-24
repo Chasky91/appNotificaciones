@@ -1,0 +1,27 @@
+GET http://localhost:5000/materias
+
+
+###
+GET http://localhost:5000/materias/55
+
+###
+POST http://localhost:5000/materias
+content-type: application/json
+
+{
+    "nombre": "Legislación",
+    "idProfe": 2,
+    "idCarrera":4
+}
+
+###
+PUT http://localhost:5000/materias/27
+content-type: application/json
+
+{
+    "nombre": "Legislación",
+    "idProfe": 1,
+    "idCarrera":4
+}
+###
+DELETE  http://localhost:5000/materias/26

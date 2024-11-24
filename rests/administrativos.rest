@@ -1,0 +1,33 @@
+GET http://localhost:5000/administrativos
+
+
+###
+GET http://localhost:5000/administrativos/3
+
+
+###
+POST http://localhost:5000/administrativos
+content-type: application/json
+
+{
+    "nombre": "MArco", 
+    "apellido":"Carrasco", 
+    "email":"MArco@gmail.com",
+    "password_hash":"ManuelCarrasco"
+}
+
+
+###
+PUT http://localhost:5000/administrativos/24
+content-type: application/json
+
+{
+    "nombre": "Angel", 
+    "apellido":"Carrasco", 
+    "email":"angel@gmail.com"
+}
+
+###
+DELETE http://localhost:5000/administrativos/14
+
+

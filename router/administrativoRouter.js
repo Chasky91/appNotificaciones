@@ -1,12 +1,10 @@
 import { Router } from "express"
-import { actualizarAlumno, crearAlumno, eliminarAlumno, obtenerAlumnos, obtenerUnAlumno } from "../controllers/alumnoControler.js"
+import { getTodos, getUno, postUno, putUno, deleteUno } from "../controllers/administrativoController.js"
 
-//endpoitns para el alumno
-export const routerAdministrativo = Router()
-//localhost:3000"/alumnos"/
-routerAdministrativo.get("/", obtenerAlumnos )
-// metodo GET para obtener un solo alumno
-routerAdministrativo.get("/:id", obtenerUnAlumno )
-routerAdministrativo.post("/", crearAlumno)
-routerAdministrativo.put("/:id", actualizarAlumno)
-routerAdministrativo.delete("/:id", eliminarAlumno)
+export const administratitvoRouter = Router()
+administratitvoRouter.get("/", getTodos )
+administratitvoRouter.get("/:id", getUno )
+administratitvoRouter.post("/", postUno)
+administratitvoRouter.put("/:id", putUno)
+administratitvoRouter.delete("/:id", deleteUno)
+administratitvoRouter.delete("/matriculaas/:id", deleteUno)

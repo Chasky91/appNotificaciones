@@ -6,64 +6,65 @@ const conexion = await mysql.createConnection(config)
 
 async function buscarTodos() {
     const resultado = await conexion.query(
-        "SELECT  * FROM profesor;",
+        "SELECT  * FROM carrera;",
       )
       return resultado[0]
 }
+//console.log(await buscarTodos());
 
   const buscarUno = async(id) =>{
     const resultados = await conexion.query(
-      'SELECT * FROM profesor WHERE id = ?;',[id]
+      'SELECT * FROM carrera WHERE id = ?;',[id]
     ) 
   return  resultados[0]
 }
+//console.log(await buscarUno(5));
 
 // funcion crear
-const  crear = async (profesor) => {
+const  crear = async (carrera) => {
   // acá inserto
   const resultado = await conexion.query(
-    'INSERT INTO profesor (nombre, apellido) VALUES (?, ?)',
-    [ profesor.nombre, profesor.apellido]
+    'INSERT INTO carrera (nombre) VALUES (?)',
+    [ carrera.nombre]
   )
   console.log(resultado[0].insertId)
 
   // aca selecciono
-  const profeNuevo = await conexion.query(
-    `SELECT * FROM profesor WHERE id = ?`, [resultado[0].insertId]
+  const nuevo = await conexion.query(
+    `SELECT * FROM carrera WHERE id = ?`, [resultado[0].insertId]
   )
    
-  return  profeNuevo[0]
+  return  nuevo[0]
 }
+//console.log(await crear({"nombre": "TEcnicatura en agrimensura"}))
 
 
-const actualizar  = async (profesor, id) => {
+const actualizar  = async (carrera, id) => {
 
   // recupro las poriedades del objeto json --> alumno
-  const nombre = profesor.nombre
-  const apellido = profesor.apellido
+  const nombre = carrera.nombre
   // sentencia sql
-  const sql = 'UPDATE profesor SET nombre = ?, apellido = ? WHERE id = ?';
+  const sql = 'UPDATE carrera SET nombre = ? WHERE id = ?';
   // Aca  estan las varibles a utilizar en la actualizacion
-  const values = [nombre, apellido, id]
+  const values = [nombre, id]
   //ejecuto la sentencia
   await conexion.execute(sql, values)
-  const select = 'SELECT * FROM profesor WHERE id = ?' // sentencia sql pararecuperar registro actualizado
+  const select = 'SELECT * FROM carrera WHERE id = ?' // sentencia sql pararecuperar registro actualizado
   const result = await conexion.execute(select, [id]) // ejecuto la sentencia
   return result[0]
 }
-/*let usuarioEJ = { 
-  "nombre": "Ruben", 
-  "apellido":"Cortez", 
+/*let registroEJ = { 
+  "nombre": "Tecnicatura en agricultura espacial", 
 }
-console.log(await actualizar(usuarioEJ , 11 ))*/
+console.log(await actualizar(registroEJ , 6 ))*/
 
 const eliminarUno  = async (id) => {
 
-  const sql = 'DELETE FROM profesor WHERE id= ?;'
+  const sql = 'DELETE FROM carrera WHERE id= ?;'
   const values = [id]
 
    const [result] = await conexion.execute(sql,values)
-    //console.log(result.affectedRows)
+    console.log(result)
     if (result.affectedRows > 0) {
         return id
     } else {
@@ -71,12 +72,12 @@ const eliminarUno  = async (id) => {
     }
 }
 
-//console.log(await eliminarUno(8))
-const  profesorModel = {
+//console.log(await eliminarUno(6))
+const  carreraModel = {
     buscarTodos,
     buscarUno,
     crear,
     actualizar,
     eliminarUno
 }
-export default profesorModel
+export default carreraModel

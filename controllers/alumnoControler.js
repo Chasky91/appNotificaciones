@@ -6,7 +6,7 @@ import alumnoModel from "../models/alumnoModel.js"
 
 export const  obtenerAlumnos = async (req, res) =>{
     console.log("desde el controlador")
-    //let resul = await alumnoModel.buscarTodos()
+    let resul = await alumnoModel.buscarTodos()
     console.log(resul)
     res.json({"mensaje":resul})
 }
