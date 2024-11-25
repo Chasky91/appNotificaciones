@@ -1,5 +1,36 @@
 use cent_44;
 
-insert into notifica_adm_alum (id_admin, dni_alum, id_mat, estado,fecha_msj,  msj) values 
-(3,23456789, 'activo', 2024 ),
+insert into notifica_adm_alum (id_admin, dni_alum, id_mat,fecha_msj,  msj) values 
+(1, 45678912, 1 , curdate(), "El  profesor no viene"), 
+(1, 34567891, 1 , curdate(), "El  profesor no viene"), 
+(1, 23456789, 1 , curdate(), "El  profesor no viene"), 
+(1, 12345678, 1 , curdate(), "El  profesor no viene"), 
+(1, 56789123, 1 , curdate(), "El  profesor no viene"), 
+(1, 67891234, 1 , curdate(), "El  profesor no viene"), 
+(1, 78912345, 1 , curdate(), "El  profesor no viene"), 
+(1, 89123456, 1 , curdate(), "El  profesor no viene"), 
+(1, 91234567, 1 , curdate(), "El  profesor no viene"), 
+(1, 98765432, 1 , curdate(), "El  profesor no viene"), 
+(2, 45678912, 1 , curdate(), "El  profesor no viene"),
+(2, 34567891, 1 , curdate(), "El  profesor no viene"),
+(2, 23456789, 1 , curdate(), "El  profesor no viene"),
+(2, 12345678, 1 , curdate(), "El  profesor no viene"),
+(2, 56789123, 1 , curdate(), "El  profesor no viene"),
+(2, 67891234, 1 , curdate(), "El  profesor no viene"),
+(2, 78912345, 1 , curdate(), "El  profesor no viene"),
+(2, 89123456, 1 , curdate(), "El  profesor no viene"),
+(2, 91234567, 1 , curdate(), "El  profesor no viene"),
+(2, 98765432, 1 , curdate(), "El  profesor no viene"),
+(2, 98765431, 1 , curdate(), "El  profesor no viene");
 
+(1, 45678912, 2 , curdate(), "El  profesor no viene"),
+(1, 34567891, 2 , curdate(), "El  profesor no viene"),
+(1, 23456789, 2 , curdate(), "El  profesor no viene"),
+(1, 12345678, 2 , curdate(), "El  profesor no viene"),
+(1, 56789123, 2 , curdate(), "El  profesor no viene"),
+(1, 67891234, 2 , curdate(), "El  profesor no viene"),
+(1, 78912345, 2 , curdate(), "El  profesor no viene"),
+(1, 89123456, 2 , curdate(), "El  profesor no viene"),
+(1, 91234567, 2 , curdate(), "El  profesor no viene"),
+(1, 98765432, 2 , curdate(), "El  profesor no viene"),
+(1, 98765431, 2 , curdate(), "El  profesor no viene")

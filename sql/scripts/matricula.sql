@@ -14,4 +14,3 @@ CREATE TABLE matricula (
     FOREIGN KEY (dni_alum) REFERENCES alumno(dni)
 );
 
-0 row(s) affected, 1 warning(s): 1265 Data truncated for column 'estado' at row 1 Rows matched: 1  Changed: 0  Warnings: 1

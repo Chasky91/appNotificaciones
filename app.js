@@ -4,6 +4,7 @@ import { profesorRouter } from './router/profesorRouter.js'
 import { carreraRouter } from './router/carreraRouter.js'
 import { materiaRouter } from './router/materiaRouter.js'
 import { administratitvoRouter } from './router/administrativoRouter.js'
+import { matriculaRouter } from './router/matriculaRouter.js'
 
 //creo el servidor
 const app = express()
@@ -15,6 +16,7 @@ app.use("/profesores", profesorRouter)
 app.use("/carreras", carreraRouter)
 app.use("/materias", materiaRouter)
 app.use("/administrativos", administratitvoRouter)
+app.use("/matriculas", matriculaRouter)
 
 //endpoints
 

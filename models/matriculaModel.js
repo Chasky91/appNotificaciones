@@ -61,34 +61,34 @@ const actualizar  = async (matricula,matriculaOld) => {
   const result = await conexion.execute(select, [id_materia, dni_alum]) // ejecuto la sentencia
   return result[0]
 }
- let registroEJ = { 
-   "id_materia":3 , 
-   "dni_alum": 78912345,
-   "estado":'inactivo',
-   "ciclo_electivo":2024
- }
- console.log(await actualizar(registroEJ, {idMatO: 2, dniO: 78912345}))
+//  let registroEJ = { 
+//    "id_materia":3 , 
+//    "dni_alum": 78912345,
+//    "estado":'inactivo',
+//    "ciclo_electivo":2024
+//  }
+//  console.log(await actualizar(registroEJ, {idMatO: 2, dniO: 78912345}))
 
-const eliminarUno  = async (id) => {
+const eliminarUno  = async (id, dni) => {
 
-  const sql = 'DELETE FROM materia WHERE id= ?;'
-  const values = [id]
+  const sql = 'DELETE FROM matricula WHERE id_materia = ? AND dni_alum = ? ; '
+  const values = [id, dni]
 
    const [result] = await conexion.execute(sql,values)
     console.log(result)
     if (result.affectedRows > 0) {
-        return id
+        return {id, dni}
     } else {
         return -1
     }
 }
 
-//console.log(await eliminarUno(6))
-const  materiaModel = {
+//console.log(await eliminarUno(2, 78912345))
+const  matriculaModel = {
     buscarTodos,
     buscarUno,
     crear,
     actualizar,
     eliminarUno
 }
-export default materiaModel
+export default matriculaModel

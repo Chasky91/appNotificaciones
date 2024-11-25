@@ -1,0 +1,31 @@
+GET http://localhost:5000/matriculas
+
+
+###
+GET http://localhost:5000/matriculas?idM=2&dni=45678912
+
+###
+GET http://localhost:5000/matriculas/3/45678912
+
+###
+POST http://localhost:5000/matriculas
+content-type: application/json
+
+{
+    "id_materia": 2,
+    "dni_alum":45678912,
+    "estado": "activo",
+    "ciclo_electivo": 2023 	
+}
+###
+PUT http://localhost:5000/matriculas/2/45678912
+content-type: application/json
+
+{
+    "id_materia": 3,
+    "dni_alum":45678912,
+    "estado": "activo",
+    "ciclo_electivo": 2023 	
+}
+###
+DELETE  http://localhost:5000/matriculas/3/45678912

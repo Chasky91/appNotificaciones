@@ -1,5 +1,5 @@
 
--- CREATE DATABASE cent_44;
+CREATE DATABASE if not exists cent_44;
 USE cent_44;
 DROP table if exists alumno;
 

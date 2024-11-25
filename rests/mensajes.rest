@@ -1,3 +1,29 @@
 ##Crear un cliente especifico
-GET http://localhost:5000/alumnos
- 
+GET http://localhost:5000/administrativos/mensajes/
+
+
+###
+
+POST http://localhost:5000/administrativos/mensajes
+content-type: application/json
+
+{
+    "id_admin": 1, 
+    "dni_alum":23456789, 
+    "id_mat":5 ,
+    "msj": "HOy el prfesor no asiste por cuestiones de salud"
+
+}
+
+
+###
+
+POST http://localhost:5000/administrativos/mensajes-grupal
+content-type: application/json
+
+{
+    "id_admin": 3, 
+    "id_mat":2 ,
+    "msj": "HOy el prfesor no asiste por cuestiones de salud XDDDDDDD"
+
+}
